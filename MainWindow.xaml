@@ -1,0 +1,143 @@
+﻿<Window x:Class="ScryDraft.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScryDraft"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1200" Width="1700">
+    <Grid Background="DarkGoldenrod">
+        <Grid Margin="5,5,385,120">
+            <Grid Width="300" Margin="5" VerticalAlignment="Top">
+                <Image 
+                    x:Name="artSlot0"
+                    Source="CardBack.jpg"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Margin="5"
+                />
+                <Button x:Name="btn0"
+                    Click="Choose0" ClickMode="Press"
+                    Opacity="0"
+                    Margin="5"/>
+            </Grid>
+            <Grid Width="300" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5, -340, 700, 5">
+                <Image 
+                    x:Name="artSlot1"
+                    Source="CardBack.jpg"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Margin="5"
+                />
+                <Button x:Name="btn1"
+                    Click="Choose1" ClickMode="Press"
+                    Margin="5"
+                    Opacity="0"/>
+            </Grid>
+            <Grid Width="300" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="700, -340, 5, 5">
+                <Image 
+                    x:Name="artSlot2"
+                    Source="CardBack.jpg"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Margin="5"
+                />
+                <Button x:Name="btn2"
+                    Click="Choose2" ClickMode="Press"
+                    Margin="5"
+                    Opacity="0"/>
+            </Grid>
+            <Grid Width="300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="350, 150, 5, 5">
+                <Image 
+                    x:Name="artSlot3"
+                    Source="CardBack.jpg"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Margin="5"
+                />
+                <Button x:Name="btn3"
+                    Click="Choose3" ClickMode="Press"
+                    Margin="5"
+                    Opacity="0"/>
+            </Grid>
+            <Grid Width="300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5, 150, 350, 5">
+                <Image 
+                        x:Name="artSlot4"
+                        Source="CardBack.jpg"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Margin="5"
+                     />
+                <Button x:Name="btn4"
+                        Click="Choose4" ClickMode="Press"
+                        Margin="5"
+                        Opacity="0"/>
+            </Grid>
+        </Grid>
+        <Grid>
+            <TextBox x:Name="deckBox" Text="Choose your commander!" 
+                 IsReadOnly="True"
+                 HorizontalAlignment="Right"
+                 Background="BlanchedAlmond"
+                 Margin="5,5,5,105"
+                 Width="150"/>
+        </Grid>
+        <Grid HorizontalAlignment="Right" Width="230" Margin="5,5,160,5" Background="BlanchedAlmond">
+            <Grid.Resources>
+                <DataTemplate x:Key="DataTemplate1">
+                    <Image Source="{Binding}" MaxWidth="200"/>
+                </DataTemplate>
+            </Grid.Resources>
+            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Background="BlanchedAlmond" HorizontalScrollBarVisibility="Disabled">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn CellTemplate="{StaticResource DataTemplate1}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid VerticalAlignment="Bottom" Height="100">
+            <DockPanel LastChildFill="False" HorizontalAlignment="Center" Margin="5, 5, 380, 5">
+                <Button x:Name="modRamp" Content="Ramp (x2)"
+                Click="ModRamp" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+                <Button x:Name="modWipe" Content="Board Wipe (x3)"
+                Click="ModWipe" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+                <Button x:Name="modDraw" Content="Draw (x2)"
+                Click="ModDraw" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+                <Button x:Name="modHigh" Content="Costs 5 or More (x1)"
+                Click="ModHigh" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+                <Button x:Name="modLow" Content="Costs 4 or Less (x1)"
+                Click="ModLow" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+                <Button x:Name="modRemoval" Content="Removal (x2)"
+                Click="ModRemoval" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+                <Button x:Name="modLand" Content="Nonbasic Land (x1)"
+                Click="ModLand" ClickMode="Press"
+                Margin="5"
+                Background="BlanchedAlmond"
+                Width="150"/>
+            </DockPanel>
+            <TextBox x:Name="sizeChecker" Text="Empty Deck! (15 Tokens) " 
+                 IsReadOnly="True"
+                 HorizontalAlignment="Right"
+                 Background="BlanchedAlmond"
+                 Margin="5"
+                 Width="150"/>
+        </Grid>
+    </Grid>
+</Window>
